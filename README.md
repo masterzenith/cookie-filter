@@ -3,7 +3,7 @@
 
 ## Tech-Stack:
 
-- Java 11, Spring Boot (framework), Maven (build tool)
+- Java 18 OpenJDK(Or any LTS version from 11/ 17), Spring Boot (framework), Maven (build tool)
 - IDE: Intellij
 
 ## Requirements:

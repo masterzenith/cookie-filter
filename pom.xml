@@ -14,7 +14,7 @@
 	<name>cookie-filter</name>
 	<description>Process a cookie log and return the most active cookie for a specific day</description>
 	<properties>
-		<java.version>11</java.version>
+		<java.version>18</java.version>
 	</properties>
 	<dependencies>
 		<dependency>
