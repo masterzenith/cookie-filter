@@ -1,0 +1,48 @@
+@startuml
+'https://plantuml.com/sequence-diagram
+
+autonumber
+participant Actor
+activate Actor
+Actor -> ProcessRunner : Program Start
+activate ProcessRunner
+ProcessRunner -> ProcessExecutorImpl: executeProcess
+ProcessExecutorImpl -> LogParser: parseCommandInput
+activate LogParser
+LogParser -> CommandInput: create
+activate CommandInput
+CommandInput --> LogParser
+deactivate CommandInput
+LogParser -> LogParser : parseCommandOption
+activate LogParser
+deactivate LogParser
+LogParser -> LogParser : outputCommandHelp
+activate LogParser
+deactivate LogParser
+LogParser -> LogParsingException : Custom Exception
+activate LogParsingException
+LogParsingException --> LogParser
+deactivate LogParsingException
+LogParser --> ProcessExecutorImpl: commandInput
+ProcessRunner <-- ProcessExecutorImpl: commandInput
+activate ProcessRunner
+ProcessRunner -> CookieFilterImpl: filterMostActiveCookies
+CookieFilterImpl -> CookieFilterImpl: filterMostActiveCookies
+activate CookieFilterImpl
+CookieFilterImpl -> LogParser : parseLog
+activate LogParser
+LogParser -> LogParser: parsing CSV Log
+deactivate LogParser
+activate LogParsingException
+LogParser -> LogParsingException: create
+LogParser <-- LogParsingException
+deactivate LogParsingException
+LogParser --> CookieFilterImpl
+CookieFilterImpl -> CookieFilterImpl: groupCookieByDate
+CookieFilterImpl -> CookieFilterImpl: mostActiveCookieFreq
+CookieFilterImpl -> CookieFilterImpl: outputMostActiveCookies
+deactivate CookieFilterImpl
+ProcessRunner <-- CookieFilterImpl: mostActiveCookieFreq
+ProcessRunner -> ProcessRunner: terminate
+Actor <-- ProcessRunner : Program finish and output result
+@enduml
