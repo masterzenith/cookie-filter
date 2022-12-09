@@ -95,3 +95,9 @@ java -jar target/cookie-filter-0.0.1-SNAPSHOT.jar -f src/logs/cookie_log.csv -d 
 [Arg Config Settings](./images/arg-config.png)
 
 [Run Successful](./images/run.png)
+
+## Deployment:
+### TODO: DockerImage
+~~~
+Have to create a DockerFile.
+~~~
