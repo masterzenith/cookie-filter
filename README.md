@@ -47,6 +47,8 @@ We define the most active cookie as one seen in the log the most times during a 
 - You have enough memory to store the contents of the whole file.
 - Cookies in the log file are sorted by timestamp (most recent occurrence is the first line of the file).
 
+## Sequence Diagram:
+[Sequence Diagram](./images/Sequence-Diagram.png)
 ## Build Project:
 
 - Go to directory: cookie-filter
